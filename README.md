@@ -38,19 +38,19 @@ The report recorded these open TCP ports:
 - `993` – IMAPS
 - `995` – POP3S
 
-![Nmap service scan](./images/01-nmap-scan.png)
+![Nmap service scan](./images/images/01-nmap-scan.png)
 
 ### 2. Directory enumeration
 
 I used DIRB to enumerate directories and files on the web server. During enumeration, I discovered `secrets.txt` and the `/secrets/` directory, which contained the Admin Login page.
 
-![DIRB directory enumeration](./images/02-directory-enumeration.png)
+![DIRB directory enumeration](./images/images/02-directory-enumeration.png)
 
 ### 3. Locate the Admin Login page
 
 I opened the discovered `/secrets/` resource and identified the Admin Login form.
 
-![Admin Login page](./images/03-admin-login-page.png)
+![Admin Login page](./images/images/03-admin-login-page.png)
 
 ### 4. SQL Injection – Authentication Bypass
 
@@ -62,9 +62,9 @@ The application displayed:
 
 This confirmed access to the Admin Panel.
 
-![SQL Injection test](./images/04-sqli-test.png)
+![SQL Injection test](./images/images/04-sqli-test.png)
 
-![Successful Admin Panel access](./images/05-admin-panel-access.png)
+![Successful Admin Panel access](./images/images/05-admin-panel-access.png)
 
 ### 5. Obtain SSH access
 
@@ -72,7 +72,7 @@ The Admin Panel contained clues that revealed credentials for the `rocket` accou
 
 **Credential values are intentionally redacted in this public write-up.**
 
-![SSH access](./images/06-ssh-access.png)
+![SSH access](./images/images/06-ssh-access.png)
 
 ### 6. Privilege escalation to root
 
@@ -82,9 +82,9 @@ Using the clue, I obtained root-level access and accessed `rootflag.txt`.
 
 **The root password and flag value are intentionally not published.**
 
-![Root password clue](./images/07-root-clue.png)
+![Root password clue](./images/images/07-root-clue.png)
 
-![Root access – sensitive values redacted](./images/08-root-access-redacted.png)
+![Root access – sensitive values redacted](./images/images/08-root-access-redacted.png)
 
 ## Impact
 
